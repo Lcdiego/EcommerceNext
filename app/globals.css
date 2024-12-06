@@ -1,0 +1,52 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.light-Footer {
+  background: linear-gradient(0deg, rgba(107, 188, 255, 0.738) 0%, rgb(73, 122, 167) 100%);
+  ;
+}
+
+.dark-Footer {
+  background: linear-gradient(0deg, rgba(100, 100, 102, 0.7384294782366072) 0%, rgba(0, 0, 10, 1) 100%);
+}
+
+.radius {
+  border-radius: 20px;
+}
+
+.imgSesion {
+  background-image: url('/register.jpg');
+}
+
+.image-gallery-left-nav .image-gallery-svg,
+.image-gallery-right-nav .image-gallery-svg {
+
+  height: 62px;
+  width: 40px;
+}
+
+.image-gallery-content .image-gallery-slide .image-gallery-image {
+  height: 35vh;
+
+}
+
+.image-gallery-slide-wrapper {
+  margin-bottom: 10px;
+}
+
+/*  altura uniforme de las miniaturas */
+.image-gallery-thumbnails-container .image-gallery-thumbnail {
+  border-radius: 5px;
+  border: 1px solid gray;
+  height: 120px;
+  object-fit: cover;
+  margin-right: 5px;
+  margin-top: 30px;
+}
+
+.image-gallery-thumbnail img {
+  height: 100%;
+  width: 100%;
+  object-fit: contain;
+}
