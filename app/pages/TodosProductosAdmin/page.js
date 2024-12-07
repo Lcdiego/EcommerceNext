@@ -2,7 +2,7 @@
 
 import { useContext, useState } from 'react';
 import { useRouter } from 'next/navigation';
-import { ProductoContext } from 'app/components/contex/contex';
+import { ProductoContext } from '../../components/contex/contex';
 import Image from 'next/image';
 import Sidebar from '../../components/Sidebar/Sidebar';
 

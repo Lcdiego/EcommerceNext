@@ -2,7 +2,7 @@
 
 import { useContext, useState } from "react";
 import { ProductoContext } from "../../components/contex/contex";
-import Sidebar from "app/components/Sidebar/Sidebar";
+import Sidebar from "../../components/Sidebar/Sidebar";
 
 
 const AgregarProducto = () => {

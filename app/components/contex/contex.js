@@ -1,8 +1,8 @@
 'use client'
 import { createContext, useState, useEffect } from "react";
 import axios from "axios";
-import { showCartAlert, showCartAlertEliminar } from "app/showCartAlert/showCartAlert";
-
+import { showCartAlert } from "../../components/showCartAlert/showCartAlert";
+import { useRouter } from "next/navigation";
 const ProductoContext = createContext();
 
 const ProductoProvider = ({ children }) => {
@@ -22,8 +22,8 @@ const ProductoProvider = ({ children }) => {
     const [className, setclassName] = useState('');
 
     const [alertVisible, setAlertVisible] = useState(false);
-const [AlertEliminar, setAlertEliminar] =useState(false)
 
+    const router = useRouter();
 
 
 
@@ -38,7 +38,7 @@ const [AlertEliminar, setAlertEliminar] =useState(false)
                     'x-auth-token': token,
                 },
             };
-            const response = await axios.post('http://localhost:5000/api/products/pago', {
+            const response = await axios.post('', {
                 data, _id: usuario._id
             }, config);
             setInitPoint(response.data.init_point);
@@ -60,7 +60,7 @@ const [AlertEliminar, setAlertEliminar] =useState(false)
                     'x-auth-token': token,
                 },
             };
-            const response = await axios.post('http://localhost:5000/api/cart/pago/carrito', {
+            const response = await axios.post('', {
                 data
             }, config);
             setInitPoint(response.data.init_point);
@@ -84,8 +84,8 @@ const [AlertEliminar, setAlertEliminar] =useState(false)
             setSearchResult([]);
         }
     }
-const agregarProductos = async (data) => {
-console.log('toke enviado', token);
+    const agregarProductos = async (data) => {
+        console.log('toke enviado', token);
 
 
         try {
@@ -100,8 +100,8 @@ console.log('toke enviado', token);
             const response = await axios.post(
                 "/api/productos/add",
                 data,
-               config,
-               {id: usuario.id},
+                config,
+                { id: usuario.id },
             );
 
             MensajeBack(response.data.message);
@@ -115,7 +115,7 @@ console.log('toke enviado', token);
     useEffect(() => {
         const fetchProductos = async () => {
 
-    
+
             try {
                 const { data } = await axios.get('/api/productos/productos');
                 setProductos(data)
@@ -154,9 +154,9 @@ console.log('toke enviado', token);
                 setLoading(false);
             }
         };
-    if(usuario){
+        if (usuario) {
             obtenerCarrito();
-    }
+        }
     }, [usuario]);
 
 
@@ -178,10 +178,17 @@ console.log('toke enviado', token);
 
     }
 
-    
+
     const agregarCarrito = async (productId) => {
-        
+       
+
         try {
+            if (!usuario || !usuario.id) {
+                router.push('/pages/Login');
+                return;
+            }
+
+
             const config = {
                 headers: {
 
@@ -193,13 +200,13 @@ console.log('toke enviado', token);
                 userId: usuario.id,
                 productId,
             }, config);
-            console.log(response.data);
+          
 
-            // Buscar si el producto ya existe en el carrito
+
             const productDuplicate = carrito.find((item) => item.productId === response.data.carritoItem.productId);
 
             if (productDuplicate) {
-                // Si el producto ya existe, simplemente actualiza el estado con los datos del backend
+
                 const updatedCarrito = carrito.map((item) =>
                     item.productId === response.data.carritoItem.productId
                         ? response.data.carritoItem
@@ -208,7 +215,7 @@ console.log('toke enviado', token);
 
                 setCarrito(updatedCarrito);
             } else {
-                // Si el producto no existe, agregarlo al carrito
+
                 setCarrito([...carrito, response.data.carritoItem]);
             }
             setAlertVisible(true);
@@ -216,15 +223,15 @@ console.log('toke enviado', token);
             console.error('Error adding to cart', error);
         }
     };
-    
+
     useEffect(() => {
         if (alertVisible) {
             showCartAlert();
-            setAlertVisible(false); 
+            setAlertVisible(false);
         }
 
     }, [alertVisible]);
-    
+
     const actualizarCantidad = async (productId, cantidad) => {
         try {
             const config = {
@@ -276,16 +283,16 @@ console.log('toke enviado', token);
                 setCarrito(response.data);
             } else {
                 console.error('La respuesta no es un array', response.data);
-                setCarrito([]); // O maneja la respuesta de otra manera según tu lógica
+                setCarrito([]);
             }
 
             console.log('Producto eliminado del carrito', response.data);
-   
+
         } catch (error) {
             console.log('error al eliminar producto', error);
         }
     };
-    
+
 
 
 
@@ -358,12 +365,8 @@ console.log('toke enviado', token);
         setToken('');
         setRole('');
         setCarrito([]);
-        localStorage.removeItem('user');
-        localStorage.removeItem('token');
-        localStorage.removeItem('role');
-        // O si usas cookies
-        // Cookies.remove('user');
-        // Cookies.remove('token');
+
+
     };
 
 
@@ -380,7 +383,7 @@ console.log('toke enviado', token);
     }
     return (
         <ProductoContext.Provider
-            value={{ initPoint, pagos, pagosCarrito, BuscarProduct, SearchResult, count, role, productos, productoSeleccionado, SeleccionarProducts, loading, token, carrito, usuario, error, MensajeBack, mensaje, registrarse, login, logout, agregarCarrito, actualizarCantidad, eliminarProducto, eliminarProductoAdmin, agregarProductos, setAlertEliminar }}>
+            value={{ initPoint, pagos, pagosCarrito, BuscarProduct, SearchResult, count, role, productos, productoSeleccionado, SeleccionarProducts, loading, token, carrito, usuario, error, MensajeBack, mensaje, registrarse, login, logout, agregarCarrito, actualizarCantidad, eliminarProducto, eliminarProductoAdmin, agregarProductos }}>
             {children}
         </ProductoContext.Provider>
     );

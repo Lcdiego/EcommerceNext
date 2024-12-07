@@ -6,7 +6,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 import { CiSearch } from 'react-icons/ci';
-import Sidebar from 'app/components/Sidebar/Sidebar';
+import Sidebar from '../../components/Sidebar/Sidebar';
 const SearchInputAdmin = () => {
   const { BuscarProduct, SearchResult, eliminarProductoAdmin } = useContext(ProductoContext);
   const [Query, setQuery] = useState('');

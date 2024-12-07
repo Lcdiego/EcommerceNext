@@ -9,7 +9,7 @@ import { FaWhatsapp } from "react-icons/fa";
 import { FaRegUser } from "react-icons/fa6";
 import Image from 'next/image';
 import { ProductoContext } from '../contex/contex';
-import { useContext, useState, useEffect } from 'react';
+import { useContext, useState} from 'react';
 import { useRouter } from 'next/navigation';
 
 

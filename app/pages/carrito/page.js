@@ -4,7 +4,7 @@ import { useContext, useEffect, useState } from "react";
 import { ProductoContext } from "../../components/contex/contex";
 import Link from "next/link";
 import Image from "next/image";
-import { showCartAlertEliminar } from "app/showCartAlert/showCartAlert";
+import { showCartAlertEliminar } from "../../components/showCartAlert/showCartAlert";
 
 const Carrito = () => {
   const { carrito, eliminarProducto, actualizarCantidad, pagosCarrito } = useContext(ProductoContext);

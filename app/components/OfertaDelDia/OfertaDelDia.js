@@ -54,9 +54,9 @@ const OfertaDelDia = () => {
                                       
                                                 <Image
                                                     src={`${producto.imagePath}`}
-                                                    alt={producto.name} // Agrega un alt para accesibilidad
-                                                    width={500} // Ancho de la imagen
-                                                    height={500} // Alto de la imagen
+                                                    alt={producto.name} 
+                                                    width={500} 
+                                                    height={500} 
                                                     className="h-full w-full object-contain"
                                                 />
                                            
