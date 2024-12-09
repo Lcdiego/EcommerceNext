@@ -25,10 +25,10 @@ const FuturosProductos = () => {
 
 
     return (
-        <div className=" mb-10">
+        <div className=" ">
             <div className=" sm:mb-20 border-b-2 border-b-gray-200 flex justify-between">
                 <div className="flex items-end">
-                    <h1 className="ml-5 xl:mx-40 text-lg sm:text-2xl text-black">
+                    <h1 className="ml-5 xl:mx-40 text-lg sm:text-2xl ">
                         Futuros Productos
                     </h1>
                 </div>

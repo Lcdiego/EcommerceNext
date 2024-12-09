@@ -9,8 +9,9 @@ import { FaWhatsapp } from "react-icons/fa";
 import { FaRegUser } from "react-icons/fa6";
 import Image from 'next/image';
 import { ProductoContext } from '../contex/contex';
-import { useContext, useState} from 'react';
+import { useContext, useState } from 'react';
 import { useRouter } from 'next/navigation';
+import { Moon, Sun } from '../Icons/icons';
 
 
 
@@ -27,10 +28,10 @@ function classNames(...classes) {
 
 export default function Navbar() {
     const router = useRouter();
-    const { usuario, logout, count, BuscarProduct} = useContext(ProductoContext);
+    const { usuario, logout, count, BuscarProduct, dark, handledark } = useContext(ProductoContext);
 
     const [Query, setQuery] = useState('');
-  
+
 
     const searchProduct = async (e) => {
         e.preventDefault();
@@ -46,12 +47,12 @@ export default function Navbar() {
     };
 
 
-    
+
     return (
         <Disclosure as="nav" className="fixed w-full z-20 bg-white ">
             {({ open, close }) => (
                 <>
-                    <div className="">
+                    <div className={`${!dark? 'bg-white': 'dark'}`}>
                         <div className='border-b-2 border-b-gray-200'>
                             <div className='mx-10 flex lg:mx-40 justify-between '>
                                 <div className='hidden w-60  justify-center sm:flex sm:justify-start  items-center'>
@@ -80,6 +81,11 @@ export default function Navbar() {
                                         <option value="option3">Option 2</option>
                                     </select>
                                 </div>
+                                <div onClick={handledark} className='flex items-center'>
+                                    {dark ? <Sun width={'30'} height={'30'} colo='yellows' /> : <Moon width={'30'} height={'30'} color="#00ff00" />}
+                                </div>
+
+
                                 <Menu as="div" className="relative mr-2 hidden w-28   sm:flex sm:items-center sm:justify-end">
                                     <div>
                                         <MenuButton className="flex justify-center items-center rounded-full focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-400">
@@ -197,9 +203,9 @@ export default function Navbar() {
 
                                         <IoCart className="h-6 w-6" aria-hidden="true" />
                                     </Link>
-                               
 
-                                   
+
+
                                     <Menu as="div" className="relative ml-3">
                                         <div className='' >
                                             <MenuButton className="flex justify-center sm:hidden items-center h-10 w-10  rounded-full focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">

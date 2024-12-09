@@ -110,7 +110,7 @@ const AgregarProducto = () => {
             </select>
 
             <input
-              className="text-sm sm:text-sm block w-full p-2 text-lg text-black rounded-md bg-gray-200 mb-3"
+              className="text-sm sm:text-sm block w-full p-2  text-black rounded-md bg-gray-200 mb-3"
               type="text"
               name="name"
               placeholder="Título"
@@ -118,7 +118,7 @@ const AgregarProducto = () => {
               onChange={handleChange}
             />
             <input
-              className="text-sm sm:text-sm block w-full p-2 text-lg text-black rounded-md bg-gray-200 mb-3"
+              className="text-sm sm:text-sm block w-full p-2 text-black rounded-md bg-gray-200 mb-3"
               type="number"
               name="price"
               placeholder="Precio"
@@ -126,7 +126,7 @@ const AgregarProducto = () => {
               onChange={handleChange}
             />
             <input
-              className="text-sm sm:text-sm block w-full p-2 text-lg text-black rounded-md bg-gray-200 mb-3"
+              className="text-sm sm:text-sm block w-full p-2 text-black rounded-md bg-gray-200 mb-3"
               type="number"
               name="stock"
               placeholder="Stock"
@@ -134,7 +134,7 @@ const AgregarProducto = () => {
               onChange={handleChange}
             />
             <textarea
-              className="text-sm sm:text-sm block w-full p-4 text-lg text-black rounded-md bg-gray-200 mb-7"
+              className="text-sm sm:text-sm block w-full p-4 text-black rounded-md bg-gray-200 mb-7"
               name="description"
               placeholder="Descripción"
               value={formData.description}

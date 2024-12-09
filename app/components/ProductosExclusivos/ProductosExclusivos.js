@@ -29,9 +29,9 @@ const ProductosExclusivos = () => {
                                    
                                         <Image
                                             src={`${producto.imagePath}`}
-                                            alt={producto.name}  // Añadir un alt para accesibilidad
-                                            width={500}  // Define el tamaño de la imagen
-                                            height={500} // Define el tamaño de la imagen
+                                            alt={producto.name} 
+                                            width={500} 
+                                            height={500} 
                                             className="h-full w-full object-contain"
                                         />
                                     

@@ -19,7 +19,7 @@ const ProductoProvider = ({ children }) => {
     const [count, setCount] = useState(0);
     const [SearchResult, setSearchResult] = useState([]);
     const [initPoint, setInitPoint] = useState('');
-    const [className, setclassName] = useState('');
+    const [dark, setDark] = useState(false)
 
     const [alertVisible, setAlertVisible] = useState(false);
 
@@ -70,9 +70,9 @@ const ProductoProvider = ({ children }) => {
         }
     };
 
-    const dark = () => {
+    const handledark = () => {
 
-        setclassName('bg-black')
+        setDark(!dark)
     }
 
     const BuscarProduct = async (query) => {
@@ -180,7 +180,7 @@ const ProductoProvider = ({ children }) => {
 
 
     const agregarCarrito = async (productId) => {
-       
+
 
         try {
             if (!usuario || !usuario.id) {
@@ -200,7 +200,7 @@ const ProductoProvider = ({ children }) => {
                 userId: usuario.id,
                 productId,
             }, config);
-          
+
 
 
             const productDuplicate = carrito.find((item) => item.productId === response.data.carritoItem.productId);
@@ -383,7 +383,7 @@ const ProductoProvider = ({ children }) => {
     }
     return (
         <ProductoContext.Provider
-            value={{ initPoint, pagos, pagosCarrito, BuscarProduct, SearchResult, count, role, productos, productoSeleccionado, SeleccionarProducts, loading, token, carrito, usuario, error, MensajeBack, mensaje, registrarse, login, logout, agregarCarrito, actualizarCantidad, eliminarProducto, eliminarProductoAdmin, agregarProductos }}>
+            value={{ initPoint, pagos, pagosCarrito, BuscarProduct, SearchResult, count, role, productos, productoSeleccionado, SeleccionarProducts, loading, token, carrito, usuario, error, MensajeBack, mensaje, registrarse, login, logout, agregarCarrito, actualizarCantidad, eliminarProducto, eliminarProductoAdmin, agregarProductos, handledark, dark }}>
             {children}
         </ProductoContext.Provider>
     );

@@ -1,5 +1,5 @@
-import connectDB from '../../../../lib/db'; // Asegúrate de tener esta conexión a MongoDB configurada
-import User from '../../../../models/Usuario'; // Modelo del usuario
+import connectDB from '../../../../lib/db'; 
+import User from '../../../../models/Usuario'; 
 import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
 
@@ -7,7 +7,7 @@ export async function POST(req) {
     await connectDB();
 
     try {
-        const { email, password } = await req.json(); // Parsear datos del request
+        const { email, password } = await req.json(); 
 
         const user = await User.findOne({ email });
 

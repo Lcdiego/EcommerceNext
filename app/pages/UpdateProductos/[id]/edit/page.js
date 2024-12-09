@@ -4,7 +4,7 @@ import { useContext, useState, useEffect, use } from "react";
 import { ProductoContext } from "../../../../components/contex/contex";
 import Sidebar from "../../../../components/Sidebar/Sidebar";
 import axios from "axios";
-import { useRouter } from "next/navigation"; // Necesario para redirigir después de la actualización
+import { useRouter } from "next/navigation"; 
 
 const EditarProducto = ({ params}) => {
   const { id } = use(params);
@@ -25,9 +25,9 @@ console.log(formData);
 
 
   const [error, setError] = useState(null);
-  const router = useRouter(); // Para redirigir después de la actualización
+  const router = useRouter(); 
 
-  // Cargar los datos del producto al cargar el componente
+  
   useEffect(() => {
     const fetchProductData = async () => {
       try {
@@ -73,11 +73,11 @@ console.log(formData);
         : [];
 
       const response = await axios.put(
-        `/api/update/${id}/edit`, // Endpoint para actualizar
+        `/api/update/${id}/edit`, 
         {
           id: id,
           ...formData,
-          image: imageBase64, // Enviar imagen en base64 si la hay
+          image: imageBase64, 
           gallery: galleryBase64,
         },
         {
@@ -149,7 +149,7 @@ console.log(formData);
           </select>
 
           <input
-            className="text-sm sm:text-sm block w-full p-2 text-lg text-black rounded-md bg-gray-200 mb-3"
+            className="text-sm sm:text-sm block w-full p-2  text-black rounded-md bg-gray-200 mb-3"
             type="text"
             name="name"
             placeholder="Título"
@@ -157,7 +157,7 @@ console.log(formData);
             onChange={handleChange}
           />
           <input
-            className="text-sm sm:text-sm block w-full p-2 text-lg text-black rounded-md bg-gray-200 mb-3"
+            className="text-sm sm:text-sm block w-full p-2  text-black rounded-md bg-gray-200 mb-3"
             type="number"
             name="price"
             placeholder="Precio"
@@ -165,7 +165,7 @@ console.log(formData);
             onChange={handleChange}
           />
           <input
-            className="text-sm sm:text-sm block w-full p-2 text-lg text-black rounded-md bg-gray-200 mb-3"
+            className="text-sm sm:text-sm block w-full p-2  text-black rounded-md bg-gray-200 mb-3"
             type="number"
             name="stock"
             placeholder="Stock"
@@ -173,7 +173,7 @@ console.log(formData);
             onChange={handleChange}
           />
           <textarea
-            className="text-sm sm:text-sm block w-full p-4 text-lg text-black rounded-md bg-gray-200 mb-7"
+            className="text-sm sm:text-sm block w-full p-4  text-black rounded-md bg-gray-200 mb-7"
             name="description"
             placeholder="Descripción"
             value={formData.description}

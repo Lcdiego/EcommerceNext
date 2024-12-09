@@ -2,12 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
-.light-Footer {
+.light {
   background: linear-gradient(0deg, rgba(107, 188, 255, 0.738) 0%, rgb(73, 122, 167) 100%);
   ;
 }
 
-.dark-Footer {
+.dark {
   background: linear-gradient(0deg, rgba(100, 100, 102, 0.7384294782366072) 0%, rgba(0, 0, 10, 1) 100%);
 }
 

@@ -5,12 +5,13 @@ import { RiCloseLargeLine } from "react-icons/ri";
 import { FaGithub } from "react-icons/fa6";
 import { FaYoutube } from "react-icons/fa";
 import { Link } from "@nextui-org/react";
-
+import { ProductoContext } from "../contex/contex";
+import { useContext } from "react";
 
 
 const Footer = () => {
 
-  
+  const{dark}= useContext(ProductoContext)
 
     return (
         <div className={''}>
@@ -24,7 +25,7 @@ const Footer = () => {
 
             </div>
             <div className="flex justify-center ">
-                <div className=" flex w-[36rem]  flex justify-around my-10 ">
+                <div className=" flex w-[36rem] justify-around my-10 ">
                     <FaFacebook size={20} className={''} />
                     <FaInstagramSquare size={20} className={''} />
                     <RiCloseLargeLine size={20} className={''} />
